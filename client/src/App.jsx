@@ -1,7 +1,10 @@
+import {Route,Routes,Navigate,Outlet,useLocation} from "react-router-dom"
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
-import {Route,Routes,Navigate,Outlet,useLocation} from "react-router-dom"
-
+import TaskDetails from './pages/TaskDetails'
+import Tasks from './pages/Task'
+import Users from "./pages/Users"
+import Trash from './pages/Trash'
 function App() {
 
   return (
@@ -10,8 +13,15 @@ function App() {
         <Route element={<Layout/>}>
           <Route path='/' element={<Navigate to={'/dashboard'}/>}/>
           <Route path='/dashboard' element={<Dashboard/>}/>
-          <Route/>
+          <Route path='/tasks' element={<Tasks/>}/>
+          <Route path='/completed/:status' element={<Tasks/>}/>
+          <Route path='/in-progress/:status' element={<Tasks/>}/>
+          <Route path='/todo/:status' element={<Tasks/>}/>
+          <Route path='/team' element={<Users/>}/>
+          <Route path='/trashed' element={<Trash/>}/>
+          <Route path='/task/:id' element={<TaskDetails/>}/>
         </Route>
+        <Route path="/log-in" element={<Login/>}/>
       </Routes>
     </main>
   )
