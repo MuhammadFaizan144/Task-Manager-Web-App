@@ -1,11 +1,11 @@
 import { Route, Routes, Navigate, Outlet, useLocation, replace } from "react-router-dom"
+import {Toaster} from 'sonner'//imp
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import TaskDetails from './pages/TaskDetails'
 import Tasks from './pages/Task'
 import Users from "./pages/Users"
 import Trash from './pages/Trash'
-import Toaster from 'sonner'
 
 function Layout() {
   const user = ""
@@ -45,7 +45,7 @@ function App() {
           <Route path='/trashed' element={<Trash />} />
           <Route path='/task/:id' element={<TaskDetails />} />
         </Route>
-        <Route path="/log-in" element={<Login />} />
+        <Route path="/log-in" element={<Login/>} />
       </Routes>
       <Toaster richColors />
     </main>
