@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
 import Textbox from '../components/Textbox';
+import Button from '../components/Button';
 const Login = () => {
     const user = ""
     const { register, handleSubmit, formState: { errors }, } = useForm();
@@ -66,9 +67,10 @@ const Login = () => {
                             })}
                             error={errors.password?errors.password.message:""}/>
                         </div>
-                        <span className=''>
+                        <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
                             Forget Password?
                         </span>
+                        <Button type='submit' label='Submit' className='w-full h-10 bg-blue-700 text-white rounded-full'/>
                     </form>
                 </div>
             </div>
