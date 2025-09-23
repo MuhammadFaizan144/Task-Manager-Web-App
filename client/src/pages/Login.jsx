@@ -6,16 +6,26 @@ import Textbox from '../components/Textbox';
 import Button from '../components/Button';
 const Login = () => {
     const user = ""
+        // user is just a string right now. In a real app, this would be your logged-in user’s info (maybe from context or Redux).
+        // Currently, since user = "", it means no one is logged in.
     const { register, handleSubmit, formState: { errors }, } = useForm();
-
+        // register → connects form inputs to react-hook-form.
+        // handleSubmit → function that runs when you submit the form.
+        // errors → stores validation error messages.
     const navigate=useNavigate()
+        // Used to redirect the user (e.g., to dashboard after login).
     const submitHandler=async(data)=>{
         console.log("Submit")
     }
+        // data will contain the form values (email, password).
+        // For now, it just logs "Submit".
+        // In real use, you’d check credentials and log the user in.
     useEffect(() => {
         user && navigate("/dashboard")
     }, [user])
-
+        // This runs whenever user changes.
+        // If user exists (truthy), it redirects to /dashboard.
+        // Since user = "", nothing happens right now.
     return (
         <div className='w-full min-h-screen flex items-center justify-center flex-col lg:flex-row bg-[#f3f4f6]'>
             <div className="w-full md:w-auto flex gap-0 md:gap-40 flex-col md:flex-row items-center justify-center">
@@ -53,7 +63,7 @@ const Login = () => {
                             label='Email Address'
                             className='w-full rounded-full'
                             register={register("email",{
-                                required:"Email Address is required1",
+                                required:"Email Address is required!",
                             })}
                             error={errors.email?errors.email.message:""}/>
                             <Textbox
