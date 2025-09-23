@@ -66,6 +66,17 @@ const Login = () => {
                                 required:"Email Address is required!",
                             })}
                             error={errors.email?errors.email.message:""}/>
+                                {/* placeholder='email@example.com' → Example text inside the input.
+                                type='email' → Input type (only allows valid emails).
+                                name='email' → Field name.
+                                label='Email Address' → Label text shown above/with input.
+                                className='w-full rounded-full' → Tailwind CSS styling.
+                                register={register("email", { required: "Email Address is required1" })}
+                                register connects the input to react-hook-form.
+                                "email" → field name for form state.
+                                required → adds validation. If the user leaves it empty, they’ll see the message: "Email Address is required1".
+                                error={errors.email ? errors.email.message : ""}
+                                If validation fails, it shows the error message under the field. */}
                             <Textbox
                             placeholder='your password'
                             type='password'
