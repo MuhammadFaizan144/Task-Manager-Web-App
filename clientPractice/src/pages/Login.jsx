@@ -53,7 +53,28 @@ const Login = () => {
                             </p>
                         </div>
                         <div className="flex flex-col gap-y-5">
-                          <Textbox/>
+                          <Textbox
+                          placeholder='email@example.com'
+                          type='email'
+                          name='email'
+                          label='Email Address'
+                          className='w-full rounded-full'
+                          register={register("email",{
+                            required:'Email Address is required!',
+                          })}
+                          error={errors.email ? errors.email.message : ""}
+                          />
+                          <Textbox
+                          placeholder='Enter Password'
+                          type='password'
+                          name='password'
+                          label='Password'
+                          className='w-full rounded-full'
+                          register={register("password",{
+                            required:'Password is required!',
+                          })}
+                          error={errors.password ? errors.password.message : ""}
+                          />
                         </div>
                         <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
                             Forget Password?
