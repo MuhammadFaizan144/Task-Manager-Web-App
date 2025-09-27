@@ -1,13 +1,28 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import Textbox from '../components/Textbox'
+import Button from '../components/Button'
 const Login = () => {
   const user = ""
+  
+  const { 
+    register, 
+    handleSubmit, 
+    formState: { errors }, 
+  } = useForm()
+
+  const navigate = useNavigate()
+
+  const submitHandler=async(data)=>{
+    console.log("submit")
+  }
+
   useEffect(() => {
     user && navigate('/dashboard')//if user exist we navigate to dashboard
   }, [user])//dependencies
-  const { register, handleSubmit, formState: { errors }, } = useForm()
-  const navigate = useNavigate()
+
+
   return (
     <div className='w-full min-h-screen flex items-center justify-center flex-col lg:flex-row bg-[#f3f4f6]'>
             <div className="w-full md:w-auto flex gap-0 md:gap-40 flex-col md:flex-row items-center justify-center">
@@ -28,7 +43,23 @@ const Login = () => {
                 </div>
                 {/* right side */}
                 <div className="w-full md:w-1/3 p-4 md:p-1 flex flex-col justify-center items-center">
-                    
+                    <form onSubmit={handleSubmit(submitHandler)} className='form-container w-full md:w-[400px] flex flex-col gap-y-8 bg bg-white px-10 pt-14 pb-14'>
+                        <div className="">
+                            <p className='text-blue-600 text-3xl font-bold text-center'>
+                                Welcome back!
+                            </p>
+                            <p className='text-center text-base text-gray-700'>
+                                Keep all your credential stage.
+                            </p>
+                        </div>
+                        <div className="flex flex-col gap-y-5">
+                          <Textbox/>
+                        </div>
+                        <span className='text-sm text-gray-500 hover:text-blue-600 hover:underline cursor-pointer'>
+                            Forget Password?
+                        </span>
+                        <Button/>
+                    </form>
                 </div>
             </div>
             
