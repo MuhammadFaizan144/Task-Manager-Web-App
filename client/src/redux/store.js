@@ -35,7 +35,7 @@ const store = configureStore({
         // Caches responses
         // Refreshes data if needed
 
-    devTools: true,
+        devTools: true,
         // Enables Redux DevTools in your browser.
         // Lets you see state changes step by step.
         

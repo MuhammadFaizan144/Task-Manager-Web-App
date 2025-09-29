@@ -4,8 +4,9 @@ import { useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
 import Textbox from '../components/Textbox';
 import Button from '../components/Button';
+import { useSelector } from 'react-redux';
 const Login = () => {
-    const user = ""
+    const {user} = useSelector((state)=>state.auth)
         // user is just a string right now. In a real app, this would be your logged-in user’s info (maybe from context or Redux).
         // Currently, since user = "", it means no one is logged in.
     const { register, handleSubmit, formState: { errors }, } = useForm();
@@ -20,6 +21,7 @@ const Login = () => {
         // data will contain the form values (email, password).
         // For now, it just logs "Submit".
         // In real use, you’d check credentials and log the user in.
+        
     useEffect(() => {
         user && navigate("/dashboard")
     }, [user])
