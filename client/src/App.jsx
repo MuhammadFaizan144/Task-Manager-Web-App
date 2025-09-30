@@ -6,9 +6,9 @@ import TaskDetails from './pages/TaskDetails'
 import Tasks from './pages/Task'
 import Users from "./pages/Users"
 import Trash from './pages/Trash'
-
+import { useSelector } from "react-redux"
 function Layout() {
-  const user = ""
+  const {user} = useSelector((state)=>state.auth)
 
   const location = useLocation()
 
@@ -36,7 +36,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path='/' element={<Navigate to={'/dashboard'} />} />
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route index path='/dashboard' element={<Dashboard />} />
           <Route path='/tasks' element={<Tasks />} />
           <Route path='/completed/:status' element={<Tasks />} />
           <Route path='/in-progress/:status' element={<Tasks />} />
