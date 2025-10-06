@@ -16,7 +16,10 @@ const Navbar = () => {
                 <input type="text" placeholder='search' className='flex-1 outline-none bg-transparent placeholder:text-gray-500 text-gray-800'/>
             </div>
         </div>
-        <div className="flex"></div>
+        <div className="flex gap-2 items-center">
+            {/* <NotificationPanel/> */}
+            <UserAvatar/>
+        </div>
     </div>
   )
 }
