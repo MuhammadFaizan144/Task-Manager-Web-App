@@ -5,7 +5,7 @@ import { FaUser, FaUserLock } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import {useNavigate} from 'react-router-dom'
-import { getInitials } from '../../../Real Software/MERN_TM/client/src/utils';
+import { getInitials } from '../utils/index'
 const UserAvatar = () => {
     const [open,setOpen]=useState(false)
     const[openPassword,setOpenPassword]=useState(false)
@@ -26,6 +26,17 @@ const UserAvatar = () => {
                         </span>
                     </Menu.Button>
                 </div>
+                <Transition 
+                as={Fragment}
+                enter='transition ease-out duration-100'
+                enterFrom='transform opacity-0 scale-95'
+                enterTo='transform opacity-100 scale-100'
+                leave='transition ease-in duration-95'
+                leaveFrom='transform opacity-100 scale-100'
+                leaveTo='transform opacity-0 scale-95'
+                >
+
+                </Transition>
             </Menu>
         </div>
     </>
